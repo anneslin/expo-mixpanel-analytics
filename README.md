@@ -38,6 +38,8 @@ analytics.people_union({ "Items purchased": ["socks", "shirts"] });
 
 analytics.people_delete_user();
 
+analytics.track_revenue({ "$time": "2013-01-03T09:00:00", "$amount": 25.34 });
+
 analytics.reset();
 
 ```
