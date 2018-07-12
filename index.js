@@ -82,6 +82,19 @@ export default class ExpoMixpanelAnalytics {
     this._people('delete', '');
   }
 
+  track_revenue(props) {
+	if (this.userId) {
+		const data = {
+		  "$append": {
+			"$transactions": props
+		  },
+		  "$token": this.token,
+		  "$distinct_id": this.userId
+		};
+  
+		this._pushProfile(data);
+	  }
+  }
   // ===========================================================================================
 
   _flush() {
